@@ -38,7 +38,12 @@ class RegressionPredict(Ui_Form, Modules):
                         print("Warning: Length of input data does not match length of coefficient vector.")
                 except:
                     pass
-                prediction = self.models[modelkey].predict(data_tmp)
+                try:
+                    prediction, pred_std = self.models[modelkey].predict(data_tmp,return_std=True)
+                    stdname = ('predict', modelkey + ' - ' + datakey + ' - Std')
+                    self.data[datakey].df[stdname] = pred_std
+                except:
+                    prediction = self.models[modelkey].predict(data_tmp)
                 predictname = ('predict', modelkey + ' - ' + datakey + ' - Predict')
                 self.data[datakey].df[predictname] = prediction
         except Exception as e:
