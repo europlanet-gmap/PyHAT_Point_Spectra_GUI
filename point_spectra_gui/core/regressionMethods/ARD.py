@@ -17,16 +17,24 @@ class Ui_Form(Ui_Form, ARDRegression, Modules):
     def setHidden(self, bool):
         self.get_widget().setHidden(bool)
 
+
+    def toggle_params(self, widgets, state):
+        for w in widgets:
+            if state:
+                w.setHidden(True)
+            else:
+                w.setHidden(False)
+
     def connectWidgets(self):
-        self.numOfIterationsSpinBox.setValue(self.n_iter)
-        self.toleranceDoubleSpinBox.setValue(self.tol)
-        self.alpha1DoubleSpinBox.setValue(self.alpha_1)
-        self.alpha2DoubleSpinBox.setValue(self.alpha_2)
-        self.lambdaDoubleSpinBox.setValue(self.lambda_1)
-        self.lambdaDoubleSpinBox_2.setValue(self.lambda_2)
-        self.thresholdLambdaSpinBox.setValue(self.threshold_lambda)
-        self.fitInterceptCheckBox.setChecked(self.fit_intercept)
-        self.normalizeCheckBox.setChecked(self.normalize)
+        alphawidgets = [self.alpha1Label, self.alpha1DoubleSpinBox, self.alpha2Label, self.alpha2DoubleSpinBox]
+        lambdawidgets = [self.lambdaLabel, self.lambdaDoubleSpinBox, self.lambdaLabel_2, self.lambdaDoubleSpinBox_2]
+        self.alpha_checkbox.stateChanged.connect(
+            lambda: self.toggle_params(alphawidgets, self.alpha_checkbox.isChecked()))
+        self.lambda_checkbox.stateChanged.connect(
+            lambda: self.toggle_params(lambdawidgets, self.lambda_checkbox.isChecked()))
+        self.alpha_checkbox.setChecked(True)
+        self.lambda_checkbox.setChecked(True)
+
 
     def run(self):
         params = {
