@@ -17,22 +17,31 @@ class Ui_Form(Ui_Form, ARDRegression, Modules):
     def setHidden(self, bool):
         self.get_widget().setHidden(bool)
 
+    def toggle_params(self, widgets, state):
+        for w in widgets:
+            if state:
+                w.setHidden(True)
+            else:
+                w.setHidden(False)
+
     def connectWidgets(self):
-        self.numOfIterationsLineEdit.setText(str(self.n_iter))
-        self.toleranceLineEdit.setText(str(self.tol))
-        self.alpha1LineEdit.setText(str(self.alpha_1))
-        self.alpha2LineEdit.setText(str(self.alpha_2))
-        self.lambdaLineEdit.setText(str(self.lambda_1))
-        self.lambdaLineEdit_2.setText(str(self.lambda_2))
-        self.thresholdLambdaLineEdit.setText(str(self.threshold_lambda))
-        self.fitIntercept_list.setCurrentItem(
-            self.fitIntercept_list.findItems(str(self.fit_intercept), QtCore.Qt.MatchExactly)[0])
-        self.normalize_list.setCurrentItem(
-            self.normalize_list.findItems(str(self.normalize), QtCore.Qt.MatchExactly)[0])
+        alphawidgets = [self.alpha1Label, self.alpha1LineEdit, self.alpha2Label, self.alpha2LineEdit]
+        lambdawidgets = [self.lambdaLabel, self.lambdaLineEdit, self.lambdaLabel_2, self.lambdaLineEdit_2]
+        self.alpha_checkbox.stateChanged.connect(
+            lambda: self.toggle_params(alphawidgets, self.alpha_checkbox.isChecked()))
+        self.lambda_checkbox.stateChanged.connect(
+            lambda: self.toggle_params(lambdawidgets, self.lambda_checkbox.isChecked()))
+        self.alpha_checkbox.setChecked(True)
+        self.lambda_checkbox.setChecked(True)
+        # self.FitIntercept_list.setCurrentItem(
+        #     self.FitIntercept_list.findItems(str(self.fit_intercept), QtCore.Qt.MatchExactly)[0])
+        # self.Normalize_list.setCurrentItem(
+        #     self.Normalize_list.findItems(str(self.normalize), QtCore.Qt.MatchExactly)[0])
+
 
     def run(self):
-        fit_intercept_items = [i.text() == 'True' for i in self.fitIntercept_list.selectedItems()]
-        normalize_items = [i.text() == 'True' for i in self.normalize_list.selectedItems()]
+        fit_intercept_items = [i.text() == 'True' for i in self.FitIntercept_list.selectedItems()]
+        normalize_items = [i.text() == 'True' for i in self.Normalize_list.selectedItems()]
 
         params = {
             'n_iter': [int(i) for i in self.numOfIterationsLineEdit.text().split(',')],

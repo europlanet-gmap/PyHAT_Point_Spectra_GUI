@@ -182,22 +182,12 @@ class CrossValidation(Ui_Form, Modules):
         for key in paramgrids.keys():
             print('===== Cross validating '+key+' =====')
             method=key
-            #if the method supports it, separate out alpha from the other parameters and prepare for calculating path
-            path_methods =  []#['Elastic Net', 'LASSO']#, 'Ridge']
-            if method in path_methods:
-                calc_path = True
-                alphas = paramgrids[key]['alphas']
-                paramgrid = paramgrids[key]['params']
-            else:
-                alphas = None
-                calc_path = False
-                paramgrid = paramgrids[key]
+            paramgrid = paramgrids[key]
 
             cv_obj = cv.cv(paramgrid)
 
             data_for_cv_out, cv_results, cvmodels, cvmodelkeys, cvpredictkeys = cv_obj.do_cv(data_for_cv.df, xcols=xvars,
-                                                                                         ycol=yvars, yrange=yrange, method=method,
-                                                                                         alphas = alphas, calc_path = calc_path)
+                                                                                         ycol=yvars, yrange=yrange, method=method)
 
             try:
                 cv_results[('cv','Data_file')] = self.datafiles[datakey]
