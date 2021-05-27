@@ -34,6 +34,14 @@ class ShiftWvl(Ui_Form, Modules):
             shifted = shift_spect(to_shift,s)
             self.data[datakey_to_shift].df = pd.concat([self.data[datakey_to_shift].df, shifted])
 
+        nan_cols = self.data[datakey_to_shift].df['wvl'].columns[self.data[datakey_to_shift].df['wvl'].isna().any()]
+        print('Dropping the following wavelengths:')
+        for i in nan_cols:
+            print(str(i))
+        nan_cols = [('wvl', i) for i in nan_cols]
+
+        self.data[datakey_to_shift].df = self.data[datakey_to_shift].df.drop(nan_cols, axis=1)
+
 
 if __name__ == "__main__":
     import sys

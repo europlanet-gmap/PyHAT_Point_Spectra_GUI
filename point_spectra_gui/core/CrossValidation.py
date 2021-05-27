@@ -48,25 +48,23 @@ class CrossValidation(Ui_Form, Modules):
         #                                           self.GPcheckBox.isChecked()))
         #self.GPcheckBox.setDisabled(True)
         self.LARScheckbox.stateChanged.connect(
-            lambda: self.toggle_regression_widget('LARS',
-                                                  self.LARScheckbox.isChecked()))
+            lambda: self.toggle_regression_widget('LARS', self.LARScheckbox.isChecked()))
         self.LASSOcheckBox.stateChanged.connect(
-            lambda: self.toggle_regression_widget('LASSO',
-                                                  self.LASSOcheckBox.isChecked()))
+            lambda: self.toggle_regression_widget('LASSO', self.LASSOcheckBox.isChecked()))
         self.OLScheckBox.stateChanged.connect(
-            lambda: self.toggle_regression_widget('OLS',self.OLScheckBox.isChecked()))
+            lambda: self.toggle_regression_widget('OLS', self.OLScheckBox.isChecked()))
         self.OMPcheckBox.stateChanged.connect(
-            lambda: self.toggle_regression_widget('OMP',self.OMPcheckBox.isChecked()))
+            lambda: self.toggle_regression_widget('OMP', self.OMPcheckBox.isChecked()))
         self.PLScheckBox.stateChanged.connect(
-            lambda: self.toggle_regression_widget('PLS',self.PLScheckBox.isChecked()))
+            lambda: self.toggle_regression_widget('PLS', self.PLScheckBox.isChecked()))
         self.RidgecheckBox.stateChanged.connect(
-            lambda: self.toggle_regression_widget('Ridge',
-                                                  self.RidgecheckBox.isChecked()))
+            lambda: self.toggle_regression_widget('Ridge', self.RidgecheckBox.isChecked()))
         self.SVRcheckBox.stateChanged.connect(
-            lambda: self.toggle_regression_widget('SVR',self.SVRcheckBox.isChecked()))
+            lambda: self.toggle_regression_widget('SVR', self.SVRcheckBox.isChecked()))
         self.LocalcheckBox.stateChanged.connect(
-            lambda: self.toggle_regression_widget('Local Regression',
-                                                  self.LocalcheckBox.isChecked()))
+            lambda: self.toggle_regression_widget('Local Regression', self.LocalcheckBox.isChecked()))
+        self.GBRcheckBox.stateChanged.connect(
+            lambda: self.toggle_regression_widget('GBR', self.GBRcheckBox.isChecked()))
         self.chooseDataComboBox.currentIndexChanged.connect(
             lambda: self.changeComboListVars(self.yVariableList, self.yvar_choices()))
         self.chooseDataComboBox.currentIndexChanged.connect(
@@ -169,6 +167,8 @@ class CrossValidation(Ui_Form, Modules):
             paramgrids['SVR']=list(ParameterGrid(self.alg['SVR'][0].run()))
         if self.LocalcheckBox.isChecked():
             paramgrids['Local Regression']=list(ParameterGrid(self.alg['Local Regression'][0].run()))
+        if self.GBRcheckBox.isChecked():
+            paramgrids['GBR'] = list(ParameterGrid(self.alg['GBR'][0].run()))
 
         datakey = self.chooseDataComboBox.currentText()
         xvars = [str(x.text()) for x in self.xVariableList.selectedItems()]
@@ -182,22 +182,12 @@ class CrossValidation(Ui_Form, Modules):
         for key in paramgrids.keys():
             print('===== Cross validating '+key+' =====')
             method=key
-            #if the method supports it, separate out alpha from the other parameters and prepare for calculating path
-            path_methods =  []#['Elastic Net', 'LASSO']#, 'Ridge']
-            if method in path_methods:
-                calc_path = True
-                alphas = paramgrids[key]['alphas']
-                paramgrid = paramgrids[key]['params']
-            else:
-                alphas = None
-                calc_path = False
-                paramgrid = paramgrids[key]
+            paramgrid = paramgrids[key]
 
             cv_obj = cv.cv(paramgrid)
 
             data_for_cv_out, cv_results, cvmodels, cvmodelkeys, cvpredictkeys = cv_obj.do_cv(data_for_cv.df, xcols=xvars,
-                                                                                         ycol=yvars, yrange=yrange, method=method,
-                                                                                         alphas = alphas, calc_path = calc_path)
+                                                                                         ycol=yvars, yrange=yrange, method=method)
 
             try:
                 cv_results[('cv','Data_file')] = self.datafiles[datakey]
@@ -292,7 +282,8 @@ class CrossValidation(Ui_Form, Modules):
                     'PLS': [cv_PLS.Ui_Form(),self.PLSLayout],
                     'Ridge': [cv_Ridge.Ui_Form(),self.Ridgelayout],
                     'SVR': [cv_SVR.Ui_Form(),self.SVRlayout],
-                    'Local Regression': [cv_Local.Ui_Form(),self.Locallayout]
+                    'Local Regression': [cv_Local.Ui_Form(),self.Locallayout],
+                    'GBR': [cv_GBR.Ui_Form(),self.GBRlayout]
                     }
 
         for key in self.alg.keys():
