@@ -18,12 +18,18 @@ class RenameColumn(Ui_Form, Modules):
         self.setComboBox(self.choosedata_comboBox, self.datakeys)
 
     def update_lvl0(self):
-        self.vars_level0 = np.unique(self.data[self.choosedata_comboBox.currentText()].df.columns.get_level_values(0))
-        self.setComboBox(self.choosecol_lvl0, self.vars_level0)
+        try:
+            self.vars_level0 = np.unique(self.data[self.choosedata_comboBox.currentText()].df.columns.get_level_values(0))
+            self.setComboBox(self.choosecol_lvl0, self.vars_level0)
+        except:
+            pass
 
     def update_lvl1(self):
-        self.vars_level1 = np.array(self.data[self.choosedata_comboBox.currentText()].df[self.choosecol_lvl0.currentText()].columns.values)
-        self.setComboBox(self.choosecol_lvl1, self.vars_level1)
+        try:
+            self.vars_level1 = np.array(self.data[self.choosedata_comboBox.currentText()].df[self.choosecol_lvl0.currentText()].columns.values)
+            self.setComboBox(self.choosecol_lvl1, self.vars_level1)
+        except:
+            pass
 
     def run(self):
         old_lvl0 = self.choosecol_lvl0.currentText()
