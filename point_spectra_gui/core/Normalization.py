@@ -163,7 +163,7 @@ class Normalization(Ui_Form, Modules):
         if self.index.value() < len(self.ranges):
             self.ranges[self.index.value()].hidden.setChecked(False)
             self.index.setValue(self.index.value() + 1)
-            print('Index is now: ' + str(self.index.value()))
+            #print('Index is now: ' + str(self.index.value()))
         else:
             print("Cannot add more ranges!")
 
@@ -171,7 +171,7 @@ class Normalization(Ui_Form, Modules):
         if self.index.value() > 1:
             self.index.setValue(self.index.value() - 1)
             self.ranges[self.index.value()].hidden.setChecked(True)
-            print('Index is now: ' + str(self.index.value()))
+            #print('Index is now: ' + str(self.index.value()))
         else:
             print("Cannot delete any more ranges!")
 

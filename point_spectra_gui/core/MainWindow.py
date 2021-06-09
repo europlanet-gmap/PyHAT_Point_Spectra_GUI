@@ -230,6 +230,8 @@ class MainWindow(Ui_MainWindow, QtCore.QThread, Modules):
                 lambda: self.addWidget(core.Standardize.Standardize))
             self.actionRename_Data.triggered.connect(
                 lambda: self.addWidget(core.RenameData.RenameData))
+            self.actionRename_Column.triggered.connect(
+                lambda: self.addWidget(core.RenameColumn.RenameColumn))
             self.actionApply_Mask.triggered.connect(
                 lambda: self.addWidget(core.MaskData.MaskData))
             self.actionMultiply_by_Vector.triggered.connect(
@@ -696,6 +698,7 @@ def main():
     sys._excepthook = sys.excepthook
     sys.excepthook = my_exception_hook
     app = QtWidgets.QApplication(sys.argv)
+    app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
     get_splash(app)
     mainWindow = QtWidgets.QMainWindow()
     ui = MainWindow()
