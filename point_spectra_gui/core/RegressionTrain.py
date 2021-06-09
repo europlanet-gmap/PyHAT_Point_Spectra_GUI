@@ -42,7 +42,8 @@ class RegressionTrain(Ui_Form, Modules):
                                # 'LASSO LARS', - This is having issues. Hide until we can debug
                                'SVR',
                                'GBR',
-                               'GP']
+                               #'GP'
+                               ]
         self.setComboBox(self.chooseAlgorithmComboBox, self.algorithm_list)
         self.setComboBox(self.chooseDataComboBox, self.datakeys)
         self.changeComboListVars(self.yVariableList, self.yvar_choices())
@@ -205,7 +206,7 @@ class RegressionTrain(Ui_Form, Modules):
         self.alg = {'ARD': ARD.Ui_Form(),
                     'BRR': BayesianRidge.Ui_Form(),
                     'Elastic Net': ElasticNet.Ui_Form(),
-                    'GP': GP.Ui_Form(),
+                    #'GP': GP.Ui_Form(),
                     # 'KRR': KRR.Ui_Form(),
                     'LARS': LARS.Ui_Form(),
                     'LASSO': Lasso.Ui_Form(),

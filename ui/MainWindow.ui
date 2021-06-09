@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
-    <height>593</height>
+    <width>1041</width>
+    <height>598</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,8 +40,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>807</width>
-         <height>295</height>
+         <width>954</width>
+         <height>166</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2"/>
@@ -151,7 +151,7 @@
          <string>Press this button when you're ready to run. (Ctrl+Enter)</string>
         </property>
         <property name="text">
-         <string>OK</string>
+         <string>Run</string>
         </property>
        </widget>
       </item>
@@ -164,8 +164,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>850</width>
-     <height>26</height>
+     <width>1041</width>
+     <height>47</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -229,6 +229,7 @@
     <addaction name="actionSave_Current_Data"/>
     <addaction name="actionRead_ChemCam_Data"/>
     <addaction name="actionRename_Data"/>
+    <addaction name="actionRename_Column"/>
     <addaction name="actionLook_Up_Metadata"/>
     <addaction name="actionRemove_Rows"/>
     <addaction name="actionCombine_Data_Sets"/>
@@ -523,6 +524,11 @@
   <action name="actionIdentify_Endmembers">
    <property name="text">
     <string>Identify Endmembers</string>
+   </property>
+  </action>
+  <action name="actionRename_Column">
+   <property name="text">
+    <string>Rename Column</string>
    </property>
   </action>
  </widget>
