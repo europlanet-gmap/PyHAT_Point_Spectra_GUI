@@ -12,4 +12,5 @@ dependencies:
  - scikit-learn
  - docutils
  - plio>=1.3
+ - networkx>=2.5
  - pyhat
