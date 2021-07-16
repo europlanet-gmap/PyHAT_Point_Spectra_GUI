@@ -16,4 +16,4 @@ dependencies:
  - pyhat
  - pip
  - pip:
-  - pysptools
+   - pysptools
