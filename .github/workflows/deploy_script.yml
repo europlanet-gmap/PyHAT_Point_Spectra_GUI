@@ -57,5 +57,3 @@ jobs:
           pwd
           ls -a
           conda build --token ${{ secrets.CONDA_UPLOAD_TOKEN }} --python ${{ matrix.python-version }} recipe
-
-
