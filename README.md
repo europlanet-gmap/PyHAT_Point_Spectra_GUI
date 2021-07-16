@@ -31,7 +31,7 @@ From the terminal type:
 
 ```bash
 conda activate pyhat_gui  # This activates the environment where the tool is installed
-point_spectra_gui # This runs the GUI
+python -m point_spectra_gui # This runs the GUI
 ```
 
 ### 4. Update an existing installation
@@ -39,8 +39,8 @@ point_spectra_gui # This runs the GUI
 If you already have an earlier version of the PyHAT Point Spectra GUI installed as described above and you want to wipe it and update to the latest version, just do:
 
 ```bash
-conda env remove -n pyhat_gui
-conda clean -a
+conda env remove -n pyhat_gui #removes the environment
+conda clean -a #removes old cached versions of packages
 ```
 And then follow the instructions above to install a fresh version.
 
