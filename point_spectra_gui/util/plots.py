@@ -9,13 +9,13 @@ from matplotlib import pyplot as plot
 
 from point_spectra_gui.util import colormaps
 
-
-def cmaps():
-    plot.register_cmap(name='viridis', cmap=colormaps.viridis)
-    plot.register_cmap(name='magma', cmap=colormaps.magma)
-    plot.register_cmap(name='inferno', cmap=colormaps.inferno)
-    plot.register_cmap(name='plasma', cmap=colormaps.plasma)
-
+#
+# def cmaps():
+#     plot.register_cmap(name='viridis', cmap=colormaps.viridis)
+#     plot.register_cmap(name='magma', cmap=colormaps.magma)
+#     plot.register_cmap(name='inferno', cmap=colormaps.inferno)
+#     plot.register_cmap(name='plasma', cmap=colormaps.plasma)
+#
 
 def make_plot(x, y, figpath, figfile=None, xrange=None, yrange=None, xtitle='Reference (wt.%)', colorvar = 'None',
               colorval = None, ytitle='Prediction (wt.%)', title=None,
@@ -103,7 +103,7 @@ def make_plot(x, y, figpath, figfile=None, xrange=None, yrange=None, xtitle='Ref
 
 def pca_ica_plot(data, x_component, y_component, dimred_obj, colorvar=None, cmap='viridis', method='PCA', figpath=None,
                  figfile=None):
-    cmaps()
+    #cmaps()
     x_label = ''
     y_label = ''
     x = [data.df[(method, x_component)]]
@@ -111,7 +111,7 @@ def pca_ica_plot(data, x_component, y_component, dimred_obj, colorvar=None, cmap
     xcomp_num = x_component.split('-')[-1]
     ycomp_num = y_component.split('-')[-1]
     pass
-    if method == 'PCA':
+    if 'PCA' in method:
         x_loading = dimred_obj.components_[int(xcomp_num) - 1, :]
         y_loading = dimred_obj.components_[int(ycomp_num) - 1, :]
 
@@ -119,13 +119,13 @@ def pca_ica_plot(data, x_component, y_component, dimred_obj, colorvar=None, cmap
         y_variance = dimred_obj.explained_variance_ratio_[int(ycomp_num) - 1] * 100
         x_label = 'PC ' + str(xcomp_num) + ' (' + str(round(x_variance, 1)) + r'%)'
         y_label = 'PC ' + str(ycomp_num) + ' (' + str(round(y_variance, 1)) + r'%)'
-    if method == 'FastICA':
+    if 'FastICA' in method:
         x_loading = dimred_obj.components_[int(xcomp_num) - 1, :]
         y_loading = dimred_obj.components_[int(ycomp_num) - 1, :]
         x_label = 'Source ' + str(xcomp_num)
         y_label = 'Source ' + str(ycomp_num)
 
-    if method == 'JADE-ICA':
+    if 'JADE-ICA' in method:
         x_loading = dimred_obj.ica_jade_loadings[int(xcomp_num) - 1, :].T
         y_loading = dimred_obj.ica_jade_loadings[int(ycomp_num) - 1, :].T
         x_label = 'Source ' + str(xcomp_num)

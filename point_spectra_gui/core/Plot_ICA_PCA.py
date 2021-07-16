@@ -44,13 +44,14 @@ class Plot_ICA_PCA(Ui_Form, Modules):
             colorvar = None
         filename = self.plotFilenameLineEdit.text()
         figpath, figfile = '/'.join(filename.split('/')[:-1]), filename.split('/')[-1]
-        pca_ica_plot(self.data[datakey], x_component, y_component, dimred_obj, colorvar=colorvar, cmap=cmap, method=method,
+        pca_ica_plot(self.data[datakey], x_component, y_component, dimred_obj, colorvar=colorvar, cmap=cmap, method=method+' (wvl)',
                      figpath=figpath, figfile=figfile)
 
     def xychoices(self):
         try:
-            choices = [str(i) for i in self.data[self.chooseDataComboBox.currentText()].df[
-                self.chooseMethodComboBox.currentText()].columns.values]
+            method_tmp = self.chooseMethodComboBox.currentText()+' (wvl)'
+            choices = [str(i) for i in self.data[self.chooseDataComboBox.currentText()].df[method_tmp]]
+
         except Exception as e:
             choices = ['-']
         return choices

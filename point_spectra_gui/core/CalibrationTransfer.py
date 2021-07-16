@@ -101,6 +101,11 @@ class CalibrationTransfer(Ui_Form, Modules):
         assert (B['wvl'].columns.values[-1] == C['wvl'].columns.values[-1]),\
             "Data set B and C wavelengths are not identical. Check rounding and/or resample one data set onto the other's wavelengths"
         A_mean, B_mean = caltran_utils.prepare_data(A, B, dataAmatchcol, dataBmatchcol)
+        if self.save_inputs_checkbox.isChecked():
+            outfileA = datakeyA+'_caltran_averages.csv'
+            outfileB = datakeyB+'_caltran_averages.csv'
+            A.to_csv(self.outpath+'//'+outfileA)
+            B.to_csv(self.outpath+'//'+outfileB)
 
         method = self.chooseMethod.currentText()
         params = self.alg[method].run()
@@ -108,6 +113,9 @@ class CalibrationTransfer(Ui_Form, Modules):
         ct_obj = cal_tran.cal_tran(params)
         print('Deriving transform from '+datakeyA+' to '+datakeyB+' using '+method)
         ct_obj.derive_transform(A_mean['wvl'],B_mean['wvl'])
+        if self.save_transform_checkbox.isChecked():
+            transform_filename = datakeyA+'_to_'+datakeyB+'_caltran_'+method+'.csv'
+            ct_obj.save_transform(self.outpath+'//'+transform_filename, A_mean['wvl'].columns.values)
 
         print('Applying transform to '+datakeyC)
         C_transform = ct_obj.apply_transform(C['wvl'])
