@@ -223,7 +223,7 @@ class Modules:
         :return:
         """
         comboBox.clear()
-        comboBox.setMaximumWidth(400)
+        #comboBox.setMaximumWidth(600)
         try:
             keyValues = [str(i) for i in keyValues] #force all elements of the list to be strings
         except:
