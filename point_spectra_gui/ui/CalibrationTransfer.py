@@ -79,6 +79,12 @@ class Ui_Form(object):
         self.chooseMethod.addItem("")
         self.Method_HLayout.addWidget(self.chooseMethod)
         self.verticalLayout_2.addLayout(self.Method_HLayout)
+        self.save_inputs_checkbox = QtWidgets.QCheckBox(self.formGroupBox)
+        self.save_inputs_checkbox.setObjectName("save_inputs_checkbox")
+        self.verticalLayout_2.addWidget(self.save_inputs_checkbox)
+        self.save_transform_checkbox = QtWidgets.QCheckBox(self.formGroupBox)
+        self.save_transform_checkbox.setObjectName("save_transform_checkbox")
+        self.verticalLayout_2.addWidget(self.save_transform_checkbox)
         self.methodlayout = QtWidgets.QVBoxLayout()
         self.methodlayout.setObjectName("methodlayout")
         self.verticalLayout_2.addLayout(self.methodlayout)
@@ -110,6 +116,8 @@ class Ui_Form(object):
         self.chooseMethod.setItemText(8, ("New CCA"))
         self.chooseMethod.setItemText(9, ("Ridge DS"))
         self.chooseMethod.setItemText(10, ("Sparse Low Rank DS"))
+        self.save_inputs_checkbox.setText(("Save caltran inputs (average spectra from A and B prior to transform)"))
+        self.save_transform_checkbox.setText(("Save transform"))
 
 
 if __name__ == "__main__":

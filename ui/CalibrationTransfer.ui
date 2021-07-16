@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>475</width>
-    <height>216</height>
+    <width>970</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -166,6 +166,20 @@
            </widget>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="save_inputs_checkbox">
+          <property name="text">
+           <string>Save caltran inputs (average spectra from A and B prior to transform)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="save_transform_checkbox">
+          <property name="text">
+           <string>Save transform</string>
+          </property>
+         </widget>
         </item>
         <item>
          <layout class="QVBoxLayout" name="methodlayout"/>
