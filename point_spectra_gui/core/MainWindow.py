@@ -698,7 +698,7 @@ def main():
     sys._excepthook = sys.excepthook
     sys.excepthook = my_exception_hook
     app = QtWidgets.QApplication(sys.argv)
-    app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
+    app.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
     get_splash(app)
     mainWindow = QtWidgets.QMainWindow()
     ui = MainWindow()
