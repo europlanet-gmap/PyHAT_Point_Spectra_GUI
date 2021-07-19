@@ -1,12 +1,4 @@
-| OS    | Status |
-|-------|--------|
-| OSX   | [![Build Status](https://travis-ci.org/USGS-Astrogeology/PyHAT_Point_Spectra_GUI.svg?branch=master)](https://travis-ci.org/USGS-Astrogeology/PyHAT_Point_Spectra_GUI) |
-|Linux  | [![Build Status](https://travis-ci.org/USGS-Astrogeology/PyHAT_Point_Spectra_GUI.svg?branch=master)](https://travis-ci.org/USGS-Astrogeology/PyHAT_Point_Spectra_GUI) |
-|Windows| [![Build status](https://ci.appveyor.com/api/projects/status/orfb1txhicspo7ap/branch/master?svg=true)](https://ci.appveyor.com/project/jlaura/pyhat-point-spectra-gui/branch/dev)|
-
-[![Coverage Status](https://coveralls.io/repos/github/Kelvinrr/pyhat_Point_Spectra_GUI/badge.svg?branch=master)](https://coveralls.io/github/Kelvinrr/pyhat_Point_Spectra_GUI?branch=master)
-[![Join the chat at https://gitter.im/USGS-Astrogeology/pyhat](https://badges.gitter.im/USGS-Astrogeology/pyhat.svg)](https://gitter.im/USGS-Astrogeology/pyhat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
+[![](http://github-actions.40ants.com/USGS-Astrogeology/PyHAT_Point_Spectra_GUI/matrix.svg)](https://github.com/USGS-Astrogeology/PyHAT_Point_Spectra_GUI)
 <img src="https://raw.githubusercontent.com/USGS-Astrogeology/PyHAT_Point_Spectra_GUI/master/images/splash.png" width=500>
 
 ## Installation
