@@ -23,14 +23,11 @@ class Ui_Form(Ui_Form, LinearDiscriminantAnalysis, Modules):
         self.changeComboListVars(self.class_combo, new_y_choices)
 
     def run(self):
-
+        ycol = self.class_combo.currentText()
         params = {
             'n_components': self.nc_spin.value()}
         params_key = str(params)
-        ycol = self.class_combo.currentText()
         return params, params_key, ycol
-
-
 
 if __name__ == "__main__":
     import sys

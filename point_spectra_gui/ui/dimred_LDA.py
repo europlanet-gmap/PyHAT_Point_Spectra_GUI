@@ -3,9 +3,7 @@
 # Automatically generated - don't edit.
 # Use `python setup.py build_ui` to update it.
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -24,24 +22,18 @@ class Ui_Form(object):
         self.formLayout.setObjectName("formLayout")
         self.nc_label = QtWidgets.QLabel(self.groupBox)
         self.nc_label.setObjectName("nc_label")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.nc_label)
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.nc_label)
         self.nc_spin = QtWidgets.QSpinBox(self.groupBox)
+        self.nc_spin.setMinimum(1)
+        self.nc_spin.setProperty("value", 4)
         self.nc_spin.setObjectName("nc_spin")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.nc_spin)
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.nc_spin)
         self.class_label = QtWidgets.QLabel(self.groupBox)
         self.class_label.setObjectName("class_label")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.class_label)
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.class_label)
         self.class_combo = QtWidgets.QComboBox(self.groupBox)
         self.class_combo.setObjectName("class_combo")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.class_combo)
-        self.label = QtWidgets.QLabel(self.groupBox)
-        self.label.setObjectName("label")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label)
-        self.comboBox = QtWidgets.QComboBox(self.groupBox)
-        self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.comboBox)
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.class_combo)
         self.verticalLayout.addWidget(self.groupBox)
 
         self.retranslateUi(Form)
@@ -52,9 +44,6 @@ class Ui_Form(object):
         Form.setWindowTitle(("Form"))
         self.nc_label.setText(("# of components"))
         self.class_label.setText(("Class column"))
-        self.label.setText(("Solver"))
-        self.comboBox.setItemText(0, ("Singular Value Decomposition"))
-        self.comboBox.setItemText(1, ("Eigenvalue"))
 
 
 if __name__ == "__main__":
@@ -65,3 +54,4 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
+
