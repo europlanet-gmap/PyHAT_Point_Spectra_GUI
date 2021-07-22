@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 from sklearn.decomposition import NMF
-from point_spectra_gui.ui.dimred_NMF import Ui_Form
+from point_spectra_gui.ui.dimred_NNMF import Ui_Form
 from point_spectra_gui.util.Modules import Modules
 
 

@@ -3,9 +3,7 @@
 # Automatically generated - don't edit.
 # Use `python setup.py build_ui` to update it.
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -30,7 +28,7 @@ class Ui_Form(object):
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.nc_spin)
         self.add_constant_check = QtWidgets.QCheckBox(self.groupBox)
         self.add_constant_check.setObjectName("add_constant_check")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.add_constant_check)
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.SpanningRole, self.add_constant_check)
         self.verticalLayout.addWidget(self.groupBox)
 
         self.retranslateUi(Form)
@@ -51,3 +49,4 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
+

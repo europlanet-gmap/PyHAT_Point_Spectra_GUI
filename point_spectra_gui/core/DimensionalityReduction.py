@@ -25,7 +25,7 @@ class DimensionalityReduction(Ui_Form, Modules):
                                'JADE-ICA',
                                't-SNE',
                                'LLE',
-                               'NMF',
+                               'NNMF',
                                'LDA',
                                'MNF']
 
@@ -128,7 +128,7 @@ class DimensionalityReduction(Ui_Form, Modules):
                       dimred_JADE,
                       dimred_tSNE,
                       dimred_LLE,
-                      dimred_NMF,
+                      dimred_NNMF,
                       dimred_LDA,
                       dimred_MNF]
         for items in list_forms:
