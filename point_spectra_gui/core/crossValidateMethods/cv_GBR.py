@@ -21,20 +21,11 @@ class Ui_Form(Ui_Form, GradientBoostingRegressor, Modules):
         pass
 
     def run(self):
-        loss_lookup ={'Least Squares':'ls', 'Least Absolute Deviation':'lad', 'Huber':'huber', 'Quantile':'quantile'}
-        loss_funcs = [loss_lookup[i.text()] for i in self.lossfunclistWidget.selectedItems()]
 
-        params = {
-                    'loss': loss_funcs,
-                    'learning_rate': [float(i) for i in self.learninglineEdit.text().split(',')],
+        params = {'learning_rate': [float(i) for i in self.learninglineEdit.text().split(',')],
                     'n_estimators': [int(i) for i in self.numEstlineEdit.text().split(',')],
-                    'subsample': [float(i) for i in self.subsamplelineEdit.text().split(',')],
-                    'min_samples_split': [int(i) for i in self.min_n_splitlineEdit.text().split(',')],
-                    'min_samples_leaf': [int(i) for i in self.min_n_leaflineEdit.text().split(',')],
                     'max_depth': [int(i) for i in self.maxdepthlineEdit.text().split(',')],
-                    'min_impurity_decrease': [float(i) for i in self.min_impuritylineEdit.text().split(',')],
-                    'random_state': [0],
-                    'alpha': [float(i) for i in self.AlphalineEdit.text().split(',')]}
+                    'random_state': [0]}
         return params
 
 

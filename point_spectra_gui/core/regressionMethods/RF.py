@@ -1,10 +1,10 @@
 from PyQt5 import QtWidgets
-from point_spectra_gui.ui.GBR import Ui_Form
+from point_spectra_gui.ui.RandomForest import Ui_Form
 from point_spectra_gui.util.Modules import Modules
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor
 
 
-class Ui_Form(Ui_Form, GradientBoostingRegressor, Modules):
+class Ui_Form(Ui_Form, RandomForestRegressor, Modules):
     def setupUi(self, Form):
         super().setupUi(Form)
         self.checkMinAndMax()
@@ -22,12 +22,11 @@ class Ui_Form(Ui_Form, GradientBoostingRegressor, Modules):
 
     def run(self):
 
-        params = {'learning_rate': self.learningDoubleSpinBox.value(),
-                  'n_estimators': self.numEstSpinBox.value(),
+        params = {'n_estimators': self.numEstSpinBox.value(),
                   'max_depth': self.max_depthSpinBox.value(),
                   'random_state': 0
                   }
-        return params, self.getChangedValues(params, GradientBoostingRegressor())
+        return params, self.getChangedValues(params, RandomForestRegressor())
 
 
 if __name__ == "__main__":
