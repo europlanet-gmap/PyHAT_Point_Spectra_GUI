@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>659</width>
-    <height>792</height>
+    <width>1082</width>
+    <height>1432</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,6 +20,112 @@
       <string>Regression Cross Validation</string>
      </property>
      <layout class="QFormLayout" name="formLayout">
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="chooseDataLabel">
+          <property name="text">
+           <string>Choose Data</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="chooseDataComboBox"/>
+        </item>
+       </layout>
+      </item>
+      <item row="5" column="0">
+       <widget class="QListWidget" name="xVariableList">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <item>
+         <property name="text">
+          <string>Choose X</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QListWidget" name="yVariableList">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>Choose Y</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="yMinLabel">
+          <property name="text">
+           <string>Y Min</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="yMinDoubleSpinBox">
+          <property name="maximum">
+           <double>999999999.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="yMaxLabel">
+          <property name="text">
+           <string>Y Max</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="yMaxDoubleSpinBox">
+          <property name="maximum">
+           <double>99999999999999.000000000000000</double>
+          </property>
+          <property name="value">
+           <double>100.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="infolabel">
+        <property name="text">
+         <string>Evaluates multiple methods and parameters to optimize regression.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="xVariableLabel">
+        <property name="text">
+         <string>X Variable</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLabel" name="yVariableLabel">
+        <property name="text">
+         <string>Y Variable</string>
+        </property>
+       </widget>
+      </item>
       <item row="8" column="0" colspan="2">
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
@@ -147,115 +253,19 @@
          </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="GBRlayout"/>
+         <layout class="QVBoxLayout" name="GBRLayout"/>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="RFcheckBox">
+          <property name="text">
+           <string>Random Forest</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="RFLayout"/>
         </item>
        </layout>
-      </item>
-      <item row="1" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QLabel" name="chooseDataLabel">
-          <property name="text">
-           <string>Choose Data</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="chooseDataComboBox"/>
-        </item>
-       </layout>
-      </item>
-      <item row="5" column="0">
-       <widget class="QListWidget" name="xVariableList">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <item>
-         <property name="text">
-          <string>Choose X</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QListWidget" name="yVariableList">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="sortingEnabled">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>Choose Y</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="yMinLabel">
-          <property name="text">
-           <string>Y Min</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QDoubleSpinBox" name="yMinDoubleSpinBox">
-          <property name="maximum">
-           <double>999999999.000000000000000</double>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="yMaxLabel">
-          <property name="text">
-           <string>Y Max</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QDoubleSpinBox" name="yMaxDoubleSpinBox">
-          <property name="maximum">
-           <double>99999999999999.000000000000000</double>
-          </property>
-          <property name="value">
-           <double>100.000000000000000</double>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="infolabel">
-        <property name="text">
-         <string>Evaluates multiple methods and parameters to optimize regression.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="xVariableLabel">
-        <property name="text">
-         <string>X Variable</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLabel" name="yVariableLabel">
-        <property name="text">
-         <string>Y Variable</string>
-        </property>
-       </widget>
       </item>
      </layout>
     </widget>
