@@ -30,6 +30,8 @@ class EndmemberIdentify(Ui_Form, Modules):
         datakey = self.chooseDataComboBox.currentText()
         xvars = [str(x.text()) for x in self.xVariableList.selectedItems()]
         n_endmembers = self.n_endmembers_spinBox.value()
+        if method == 'FIPPI':
+            n_endmembers = n_endmembers-1
         self.data[datakey].endmember_identify(xvars, method, n_endmembers)
 
     def xvar_choices(self):
