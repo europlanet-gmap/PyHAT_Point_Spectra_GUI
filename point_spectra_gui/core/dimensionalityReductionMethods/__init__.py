@@ -6,3 +6,4 @@ from point_spectra_gui.core.dimensionalityReductionMethods import dimred_tSNE
 from point_spectra_gui.core.dimensionalityReductionMethods import dimred_NNMF
 from point_spectra_gui.core.dimensionalityReductionMethods import dimred_LDA
 from point_spectra_gui.core.dimensionalityReductionMethods import dimred_MNF
+from point_spectra_gui.core.dimensionalityReductionMethods import dimred_LFDA

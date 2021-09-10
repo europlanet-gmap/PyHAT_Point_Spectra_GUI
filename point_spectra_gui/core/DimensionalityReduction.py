@@ -27,7 +27,8 @@ class DimensionalityReduction(Ui_Form, Modules):
                                'LLE',
                                'NNMF',
                                'LDA',
-                               'MNF']
+                               'MNF',
+                               'LFDA']
 
         self.setComboBox(self.chooseDataComboBox, self.datakeys)
         self.setComboBox(self.chooseMethodComboBox, self.algorithm_list)
@@ -38,7 +39,7 @@ class DimensionalityReduction(Ui_Form, Modules):
         self.update_LDA()
 
     def update_LDA(self):
-        if self.chooseMethodComboBox.currentText() == 'LDA':
+        if self.chooseMethodComboBox.currentText() == 'LDA' or self.chooseMethodComboBox.currentText() == 'LFDA':
             new_y_choices = self.yvar_choices()
             index = self.chooseMethodComboBox.currentIndex()
             self.alg[index - 1].update(new_y_choices)
@@ -99,7 +100,7 @@ class DimensionalityReduction(Ui_Form, Modules):
         col = 'wvl'
         method = self.chooseMethodComboBox.currentText()
         datakey = self.chooseDataComboBox.currentText()
-        if method == 'LDA':
+        if method == 'LDA' or method == 'LFDA':
             params, modelkey, ycol = self.getMethodParams(self.chooseMethodComboBox.currentIndex())
             df, dimred_obj = dim_red(self.data[datakey].df, col, method, [], params, load_fit, ycol=ycol)
         else:
@@ -130,7 +131,8 @@ class DimensionalityReduction(Ui_Form, Modules):
                       dimred_LLE,
                       dimred_NNMF,
                       dimred_LDA,
-                      dimred_MNF]
+                      dimred_MNF,
+                      dimred_LFDA]
         for items in list_forms:
             self.alg.append(items.Ui_Form())
             self.alg[-1].setupUi(self.Form)
