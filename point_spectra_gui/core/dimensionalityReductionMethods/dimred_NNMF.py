@@ -1,10 +1,10 @@
 from PyQt5 import QtWidgets
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from point_spectra_gui.ui.dimred_LDA import Ui_Form
+from sklearn.decomposition import NMF
+from point_spectra_gui.ui.dimred_NNMF import Ui_Form
 from point_spectra_gui.util.Modules import Modules
 
 
-class Ui_Form(Ui_Form, LinearDiscriminantAnalysis, Modules):
+class Ui_Form(Ui_Form, NMF, Modules):
     def setupUi(self, Form):
         super().setupUi(Form)
         self.checkMinAndMax()
@@ -19,15 +19,14 @@ class Ui_Form(Ui_Form, LinearDiscriminantAnalysis, Modules):
     def connectWidgets(self):
         self.nc_spin.setValue(8)
 
-    def update(self,new_y_choices):
-        self.changeComboListVars(self.class_combo, new_y_choices)
-
     def run(self):
-        ycol = self.class_combo.currentText()
         params = {
-            'n_components': self.nc_spin.value()}
+            'n_components': self.nc_spin.value(),
+            'random_state':0,
+            'add_constant':self.add_constant_check.isChecked()}
         params_key = str(params)
-        return params, params_key, ycol
+        return params, params_key
+
 
 if __name__ == "__main__":
     import sys

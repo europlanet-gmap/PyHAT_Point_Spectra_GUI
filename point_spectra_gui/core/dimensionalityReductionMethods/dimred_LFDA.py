@@ -1,10 +1,10 @@
 from PyQt5 import QtWidgets
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from point_spectra_gui.ui.dimred_LDA import Ui_Form
+from libpyhat.transform.dim_reductions.lfda import LFDA
+from point_spectra_gui.ui.dimred_LFDA import Ui_Form
 from point_spectra_gui.util.Modules import Modules
 
 
-class Ui_Form(Ui_Form, LinearDiscriminantAnalysis, Modules):
+class Ui_Form(Ui_Form, LFDA, Modules):
     def setupUi(self, Form):
         super().setupUi(Form)
         self.checkMinAndMax()
@@ -20,12 +20,16 @@ class Ui_Form(Ui_Form, LinearDiscriminantAnalysis, Modules):
         self.nc_spin.setValue(8)
 
     def update(self,new_y_choices):
-        self.changeComboListVars(self.class_combo, new_y_choices)
+        self.changeComboListVars(self.class_col, new_y_choices)
 
     def run(self):
-        ycol = self.class_combo.currentText()
+        ycol = self.class_col.currentText()
+        metric = self.metric.currentText()
+        knn = self.n_neighbors.value()
         params = {
-            'n_components': self.nc_spin.value()}
+            'r': self.nc_spin.value(),
+            'metric':metric,
+            'knn':knn}
         params_key = str(params)
         return params, params_key, ycol
 

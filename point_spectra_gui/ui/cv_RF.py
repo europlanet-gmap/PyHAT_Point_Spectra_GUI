@@ -26,18 +26,12 @@ class Ui_Form(object):
         self.numEstlineEdit = QtWidgets.QLineEdit(self.formGroupBox)
         self.numEstlineEdit.setObjectName("numEstlineEdit")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.numEstlineEdit)
-        self.learningLabel = QtWidgets.QLabel(self.formGroupBox)
-        self.learningLabel.setObjectName("learningLabel")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.learningLabel)
-        self.learninglineEdit = QtWidgets.QLineEdit(self.formGroupBox)
-        self.learninglineEdit.setObjectName("learninglineEdit")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.learninglineEdit)
         self.max_depthLabel = QtWidgets.QLabel(self.formGroupBox)
         self.max_depthLabel.setObjectName("max_depthLabel")
-        self.formLayout.setWidget(5, QtWidgets.QFormLayout.LabelRole, self.max_depthLabel)
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.max_depthLabel)
         self.maxdepthlineEdit = QtWidgets.QLineEdit(self.formGroupBox)
         self.maxdepthlineEdit.setObjectName("maxdepthlineEdit")
-        self.formLayout.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.maxdepthlineEdit)
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.maxdepthlineEdit)
         self.verticalLayout.addWidget(self.formGroupBox)
 
         self.retranslateUi(Form)
@@ -46,11 +40,9 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(("Form"))
-        self.formGroupBox.setTitle(("Gradient Boosting Regression"))
+        self.formGroupBox.setTitle(("Random Forest Regression"))
         self.numEstLabel.setText(("# of estimators"))
         self.numEstlineEdit.setText(("100"))
-        self.learningLabel.setText(("Learning Rate"))
-        self.learninglineEdit.setText(("0.1"))
         self.max_depthLabel.setText(("Max Depth"))
         self.maxdepthlineEdit.setText(("3"))
 
