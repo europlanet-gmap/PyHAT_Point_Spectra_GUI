@@ -13,3 +13,4 @@ from point_spectra_gui.core.crossValidateMethods import cv_Ridge
 from point_spectra_gui.core.crossValidateMethods import cv_SVR
 from point_spectra_gui.core.crossValidateMethods import cv_Local
 from point_spectra_gui.core.crossValidateMethods import cv_GBR
+from point_spectra_gui.core.crossValidateMethods import cv_RF

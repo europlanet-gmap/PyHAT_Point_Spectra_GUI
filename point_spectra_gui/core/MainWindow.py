@@ -87,7 +87,8 @@ class MainWindow(Ui_MainWindow, QtCore.QThread, Modules):
         self._readAndApplyWindowAttributeSettings()
         self.menu_item_shortcuts()  # set up the shortcuts
         self.connectWidgets()
-        self.debug_mode()
+        #self.debug_mode()
+        self.normal_mode()
         self.addWidget(core.OutputFolder.OutputFolder)
 
         #self.normal_mode()
@@ -254,6 +255,8 @@ class MainWindow(Ui_MainWindow, QtCore.QThread, Modules):
                 lambda: self.addWidget(core.LocalRegression.LocalRegression))
             self.actionPredict.triggered.connect(
                 lambda: self.addWidget(core.RegressionPredict.RegressionPredict))
+            self.actionCalculate_Local_RMSEP.triggered.connect(
+                lambda: self.addWidget(core.LocalRMSEP.LocalRMSEP))
             self.actionRemove_Rows.triggered.connect(
                 lambda: self.addWidget(core.RemoveRows.RemoveRows))
             self.actionSplit_Data.triggered.connect(

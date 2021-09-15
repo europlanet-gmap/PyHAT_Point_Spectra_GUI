@@ -24,16 +24,11 @@ class Ui_Form(object):
         self.nc_label.setObjectName("nc_label")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.nc_label)
         self.nc_spin = QtWidgets.QSpinBox(self.groupBox)
-        self.nc_spin.setMinimum(1)
-        self.nc_spin.setProperty("value", 4)
         self.nc_spin.setObjectName("nc_spin")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.nc_spin)
-        self.class_label = QtWidgets.QLabel(self.groupBox)
-        self.class_label.setObjectName("class_label")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.class_label)
-        self.class_combo = QtWidgets.QComboBox(self.groupBox)
-        self.class_combo.setObjectName("class_combo")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.class_combo)
+        self.add_constant_check = QtWidgets.QCheckBox(self.groupBox)
+        self.add_constant_check.setObjectName("add_constant_check")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.SpanningRole, self.add_constant_check)
         self.verticalLayout.addWidget(self.groupBox)
 
         self.retranslateUi(Form)
@@ -43,7 +38,7 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(("Form"))
         self.nc_label.setText(("# of components"))
-        self.class_label.setText(("Class column"))
+        self.add_constant_check.setText(("Add a constant value to data to ensure it is non-negative?"))
 
 
 if __name__ == "__main__":
