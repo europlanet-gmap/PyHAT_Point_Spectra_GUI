@@ -37,7 +37,7 @@ jobs:
           mamba-version: "*"
           use-mamba: true
           channels: conda-forge, usgs-astrogeology
-          channel-priority: strict
+          channel-priority: true
           activate-environment: test_env
           environment-file: environment.yml
       - name: Setup python
