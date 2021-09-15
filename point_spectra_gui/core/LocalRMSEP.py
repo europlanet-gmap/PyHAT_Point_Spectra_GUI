@@ -58,10 +58,10 @@ class LocalRMSEP(Ui_Form, Modules):
         if self.plot_file.text() == '':
             plot_file = None
         else:
-            plot_file = self.outpath +  self.plot_file.text()
+            plot_file = self.plot_file.text()
 
         local_rmsep.dynamic_rmse(predictions,actuals,windowsize=windowsize,min_rmsep_num=n_neighbors,sigma=sigma,
-                                 plot_file=plot_file,xmax=xmax)
+                                 plot_file=plot_file,xmax=xmax,outpath=self.outpath)
 
     def get_choices(self, colname):
         try:
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
     Form = QtWidgets.QWidget()
-    ui = LoadData()
+    ui = LocalRMSEP()
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
