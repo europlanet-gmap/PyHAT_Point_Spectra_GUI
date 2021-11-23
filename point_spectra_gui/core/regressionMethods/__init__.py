@@ -12,3 +12,4 @@ from point_spectra_gui.core.regressionMethods import PLS
 from point_spectra_gui.core.regressionMethods import Ridge
 from point_spectra_gui.core.regressionMethods import SVR
 from point_spectra_gui.core.regressionMethods import GBR
+from point_spectra_gui.core.regressionMethods import RF
