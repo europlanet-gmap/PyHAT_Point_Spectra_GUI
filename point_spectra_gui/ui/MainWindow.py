@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(QtCore.Qt.AlignCenter)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 954, 166))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 954, 174))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
@@ -197,6 +197,8 @@ class Ui_MainWindow(object):
         self.actionRename_Column.setObjectName("actionRename_Column")
         self.actionCalculate_Local_RMSEP = QtWidgets.QAction(MainWindow)
         self.actionCalculate_Local_RMSEP.setObjectName("actionCalculate_Local_RMSEP")
+        self.actionUnmixing = QtWidgets.QAction(MainWindow)
+        self.actionUnmixing.setObjectName("actionUnmixing")
         self.menuFile.addAction(self.actionRestore_Workflow)
         self.menuFile.addAction(self.actionSave_Current_Workflow)
         self.menuFile.addAction(self.actionCreate_New_Workflow)
@@ -209,6 +211,7 @@ class Ui_MainWindow(object):
         self.menuPreprocessing.addAction(self.actionNormalization)
         self.menuPreprocessing.addAction(self.actionStandardize_Data)
         self.menuPreprocessing.addAction(self.actionDimensionality_Reduction)
+        self.menuPreprocessing.addAction(self.actionUnmixing)
         self.menuPreprocessing.addAction(self.actionSpectral_Derivative)
         self.menuPreprocessing.addAction(self.actionWavelength_Shift)
         self.menuPreprocessing.addAction(self.actionCalibration_Transfer)
@@ -332,6 +335,7 @@ class Ui_MainWindow(object):
         self.actionIdentify_Endmembers.setText(("Identify Endmembers"))
         self.actionRename_Column.setText(("Rename Column"))
         self.actionCalculate_Local_RMSEP.setText(("Calculate Local RMSEP"))
+        self.actionUnmixing.setText(("Unmixing"))
 
 
 if __name__ == "__main__":

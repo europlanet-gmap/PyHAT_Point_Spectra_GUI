@@ -39,4 +39,5 @@ from point_spectra_gui.core import CalibrationTransferCV
 from point_spectra_gui.core import Standardize
 from point_spectra_gui.core import RenameColumn
 from point_spectra_gui.core import LocalRMSEP
+from point_spectra_gui.core import Unmixing
 from point_spectra_gui.core.regressionMethods import *

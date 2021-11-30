@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1041</width>
-    <height>598</height>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,7 +41,7 @@
          <x>0</x>
          <y>0</y>
          <width>954</width>
-         <height>166</height>
+         <height>174</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2"/>
@@ -189,6 +189,7 @@
     <addaction name="actionNormalization"/>
     <addaction name="actionStandardize_Data"/>
     <addaction name="actionDimensionality_Reduction"/>
+    <addaction name="actionUnmixing"/>
     <addaction name="actionSpectral_Derivative"/>
     <addaction name="actionWavelength_Shift"/>
     <addaction name="actionCalibration_Transfer"/>
@@ -535,6 +536,11 @@
   <action name="actionCalculate_Local_RMSEP">
    <property name="text">
     <string>Calculate Local RMSEP</string>
+   </property>
+  </action>
+  <action name="actionUnmixing">
+   <property name="text">
+    <string>Unmixing</string>
    </property>
   </action>
  </widget>
