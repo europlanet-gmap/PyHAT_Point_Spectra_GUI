@@ -60,8 +60,10 @@ class LocalRMSEP(Ui_Form, Modules):
         else:
             plot_file = self.plot_file.text()
 
+        fullfit = self.fitall.isChecked()
         local_rmsep.dynamic_rmse(predictions,actuals,windowsize=windowsize,min_rmsep_num=n_neighbors,sigma=sigma,
-                                 plot_file=plot_file,xmax=xmax,outpath=self.outpath)
+                                 plot_file=plot_file,xmax=xmax,outpath=self.outpath,element=self.choosecomp.currentText(),
+                                 full_fit=fullfit)
 
     def get_choices(self, colname):
         try:
