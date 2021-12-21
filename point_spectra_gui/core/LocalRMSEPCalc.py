@@ -1,12 +1,12 @@
 import pandas as pd
 from PyQt5 import QtWidgets
 from point_spectra_gui.util.spectral_data import spectral_data
-from point_spectra_gui.ui.LocalRMSEP import Ui_Form
+from point_spectra_gui.ui.LocalRMSEPCalc import Ui_Form
 from libpyhat.regression import local_rmsep
 from point_spectra_gui.util.Modules import Modules
 import numpy as np
 
-class LocalRMSEP(Ui_Form, Modules):
+class LocalRMSEPCalc(Ui_Form, Modules):
 
 
     def setupUi(self, Form):
@@ -18,8 +18,10 @@ class LocalRMSEP(Ui_Form, Modules):
 
     def connectWidgets(self):
         self.setComboBox(self.chooseDataComboBox, self.datakeys)
+        self.setComboBox(self.chooseUnkData, self.datakeys)
         self.refresh()
         self.chooseDataComboBox.currentIndexChanged.connect(self.refresh)
+        self.chooseUnkData.currentIndexChanged.connect(self.refresh)
         self.hidefit()
         self.extrapolate_check.stateChanged.connect(self.hidefit)
         self.fitall.toggled.connect(self.set_radio_buttons)
@@ -45,29 +47,34 @@ class LocalRMSEP(Ui_Form, Modules):
     def refresh(self):
         self.changeComboListVars(self.choosecomp, self.get_choices('comp'))
         self.changeComboListVars(self.choosepredict, self.get_choices('predict'))
+        self.changeComboListVars(self.chooseUnkpredict, self.get_choices_unk('predict'))
 
     def run(self):
         predictions = self.data[self.chooseDataComboBox.currentText()].df[('predict',self.choosepredict.currentText())]
         actuals = self.data[self.chooseDataComboBox.currentText()].df[('comp',self.choosecomp.currentText())]
-        windowsize = [float(i) for i in self.window_size.text().split(',')]
-        n_neighbors = np.array([int(i) for i in self.n_neighbors.text().split(',')])
-        n_neighbors = n_neighbors[n_neighbors >= 1]
-        sigma = [int(i) for i in self.sigma.text().split(',')]
+        unk_predicts = self.data[self.chooseUnkData.currentText()].df[('predict',self.chooseUnkpredict.currentText())]
+        windowsize = self.win_size_spin.value()
+        n_neighbors = self.n_neighbors_spin.value()
+        sigma = self.sigma_spin.value()
+
         xmax = self.xmax.value()
-
-        if self.plot_file.text() == '':
-            plot_file = None
-        else:
-            plot_file = self.plot_file.text()
-
+        extrap = self.extrapolate_check.isChecked()
         fullfit = self.fitall.isChecked()
-        local_rmsep.dynamic_rmse(predictions,actuals,windowsize=windowsize,min_rmsep_num=n_neighbors,sigma=sigma,
-                                 plot_file=plot_file,xmax=xmax,outpath=self.outpath,element=self.choosecomp.currentText(),
-                                 full_fit=fullfit)
+        local_rmseps = local_rmsep.local_rmse_calc(predictions,actuals,unk_predicts,windowsize=windowsize,min_rmsep_num=n_neighbors,
+                                    sigma=sigma,extrapolate=extrap,full_fit=fullfit,xmax=xmax)
+        self.data[self.chooseUnkData.currentText()].df[('predict','Local_RMSEP - '+self.chooseUnkpredict.currentText())]=local_rmseps
+
 
     def get_choices(self, colname):
         try:
             choices = self.data[self.chooseDataComboBox.currentText()].df[colname].columns.values
+            choices = [i for i in choices if not 'Unnamed' in i]  # remove unnamed columns from choices
+        except:
+            choices = ['No matching columns!']
+        return choices
+    def get_choices_unk(self, colname):
+        try:
+            choices = self.data[self.chooseUnkData.currentText()].df[colname].columns.values
             choices = [i for i in choices if not 'Unnamed' in i]  # remove unnamed columns from choices
         except:
             choices = ['No matching columns!']

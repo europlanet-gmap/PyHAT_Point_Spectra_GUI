@@ -206,6 +206,7 @@
     <addaction name="actionSubmodel_Blend"/>
     <addaction name="actionSave_Trained_Model"/>
     <addaction name="actionRestore_Trained_Model"/>
+    <addaction name="actionLocal_RMSEP_Explore"/>
     <addaction name="actionCalculate_Local_RMSEP"/>
    </widget>
    <widget class="QMenu" name="menuVisualization">
@@ -533,14 +534,19 @@
     <string>Rename Column</string>
    </property>
   </action>
-  <action name="actionCalculate_Local_RMSEP">
+  <action name="actionLocal_RMSEP_Explore">
    <property name="text">
-    <string>Calculate Local RMSEP</string>
+    <string>Explore Local RMSEP Parameters</string>
    </property>
   </action>
   <action name="actionUnmixing">
    <property name="text">
     <string>Unmixing</string>
+   </property>
+  </action>
+  <action name="actionCalculate_Local_RMSEP">
+   <property name="text">
+    <string>Calculate Local RMSEP</string>
    </property>
   </action>
  </widget>

@@ -195,10 +195,12 @@ class Ui_MainWindow(object):
         self.actionIdentify_Endmembers.setObjectName("actionIdentify_Endmembers")
         self.actionRename_Column = QtWidgets.QAction(MainWindow)
         self.actionRename_Column.setObjectName("actionRename_Column")
-        self.actionCalculate_Local_RMSEP = QtWidgets.QAction(MainWindow)
-        self.actionCalculate_Local_RMSEP.setObjectName("actionCalculate_Local_RMSEP")
+        self.actionLocal_RMSEP_Explore = QtWidgets.QAction(MainWindow)
+        self.actionLocal_RMSEP_Explore.setObjectName("actionLocal_RMSEP_Explore")
         self.actionUnmixing = QtWidgets.QAction(MainWindow)
         self.actionUnmixing.setObjectName("actionUnmixing")
+        self.actionCalculate_Local_RMSEP = QtWidgets.QAction(MainWindow)
+        self.actionCalculate_Local_RMSEP.setObjectName("actionCalculate_Local_RMSEP")
         self.menuFile.addAction(self.actionRestore_Workflow)
         self.menuFile.addAction(self.actionSave_Current_Workflow)
         self.menuFile.addAction(self.actionCreate_New_Workflow)
@@ -223,6 +225,7 @@ class Ui_MainWindow(object):
         self.menuRegression.addAction(self.actionSubmodel_Blend)
         self.menuRegression.addAction(self.actionSave_Trained_Model)
         self.menuRegression.addAction(self.actionRestore_Trained_Model)
+        self.menuRegression.addAction(self.actionLocal_RMSEP_Explore)
         self.menuRegression.addAction(self.actionCalculate_Local_RMSEP)
         self.menuVisualization.addAction(self.actionPlot)
         self.menuVisualization.addAction(self.actionPlot_Spectra)
@@ -334,8 +337,9 @@ class Ui_MainWindow(object):
         self.actionStandardize_Data.setText(("Standardize"))
         self.actionIdentify_Endmembers.setText(("Identify Endmembers"))
         self.actionRename_Column.setText(("Rename Column"))
-        self.actionCalculate_Local_RMSEP.setText(("Calculate Local RMSEP"))
+        self.actionLocal_RMSEP_Explore.setText(("Explore Local RMSEP Parameters"))
         self.actionUnmixing.setText(("Unmixing"))
+        self.actionCalculate_Local_RMSEP.setText(("Calculate Local RMSEP"))
 
 
 if __name__ == "__main__":
