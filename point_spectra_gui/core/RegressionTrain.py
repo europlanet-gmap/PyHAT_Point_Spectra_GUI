@@ -42,6 +42,7 @@ class RegressionTrain(Ui_Form, Modules):
                                # 'LASSO LARS', - This is having issues. Hide until we can debug
                                'SVR',
                                'GBR',
+                               'RF'
                                #'GP'
                                ]
         self.setComboBox(self.chooseAlgorithmComboBox, self.algorithm_list)
@@ -216,7 +217,8 @@ class RegressionTrain(Ui_Form, Modules):
                     'PLS': PLS.Ui_Form(),
                     'Ridge': Ridge.Ui_Form(),
                     'SVR': SVR.Ui_Form(),
-                    'GBR': GBR.Ui_Form()
+                    'GBR': GBR.Ui_Form(),
+                    'RF':RF.Ui_Form()
                     }
 
         for item in self.alg:

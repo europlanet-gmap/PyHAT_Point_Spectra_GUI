@@ -17,7 +17,8 @@ class EndmemberIdentify(Ui_Form, Modules):
                                'PPI',
                                'N-FINDR',
                                'ATGP',
-                               'FIPPI'
+                               'FIPPI',
+                               'SMACC'
                                ]
         self.setComboBox(self.chooseDataComboBox, self.datakeys)
         self.setComboBox(self.chooseAlgorithmComboBox, self.algorithm_list)

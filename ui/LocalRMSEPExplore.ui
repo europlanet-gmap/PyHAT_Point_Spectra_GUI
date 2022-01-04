@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1063</width>
+    <height>746</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QGroupBox" name="groupLayout">
+     <property name="title">
+      <string>Explore Local RMSEP Parameters</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="3" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Separate multiple values with commas:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="n_neighbors">
+        <property name="text">
+         <string>40</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="window_size">
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="sigma">
+        <property name="text">
+         <string>10</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="chooseAlgorithmLabel">
+        <property name="text">
+         <string>Minimum # of neighbors</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="choosepredict"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="prediction_label">
+        <property name="text">
+         <string>Prediction</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="choosecomp"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="chooseDataLabel">
+        <property name="text">
+         <string>Choose test data set</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QCheckBox" name="extrapolate_check">
+        <property name="text">
+         <string>Extrapolate?</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="sigma_label">
+        <property name="text">
+         <string>Sigma (smoothing)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="plot_file_label">
+        <property name="text">
+         <string>Plot file prefix</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QLineEdit" name="plot_file">
+        <property name="text">
+         <string>local_rmsep_plot</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QRadioButton" name="fit_local_min">
+        <property name="text">
+         <string>Fit from last local minimum</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QRadioButton" name="fitall">
+        <property name="text">
+         <string>Fit all</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="truecomp_label">
+        <property name="text">
+         <string>True composition</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="chooseDataComboBox"/>
+      </item>
+      <item row="9" column="1">
+       <widget class="QDoubleSpinBox" name="xmax">
+        <property name="maximum">
+         <double>1000000.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="xmax_label">
+        <property name="text">
+         <string>Extrapolate to</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="window_size_label">
+        <property name="text">
+         <string>Window size (same units as predictions)</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

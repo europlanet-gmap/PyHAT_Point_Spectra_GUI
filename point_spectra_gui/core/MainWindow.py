@@ -213,6 +213,8 @@ class MainWindow(Ui_MainWindow, QtCore.QThread, Modules):
                 lambda: self.addWidget(core.CrossValidation.CrossValidation))
             self.actionDimensionality_Reduction.triggered.connect(
                 lambda: self.addWidget(core.DimensionalityReduction.DimensionalityReduction))
+            self.actionUnmixing.triggered.connect(
+                lambda: self.addWidget(core.Unmixing.Unmixing))
             self.actionCluster.triggered.connect(
                 lambda: self.addWidget(core.Clustering.Clustering))
             self.actionResample.triggered.connect(
@@ -255,8 +257,10 @@ class MainWindow(Ui_MainWindow, QtCore.QThread, Modules):
                 lambda: self.addWidget(core.LocalRegression.LocalRegression))
             self.actionPredict.triggered.connect(
                 lambda: self.addWidget(core.RegressionPredict.RegressionPredict))
+            self.actionLocal_RMSEP_Explore.triggered.connect(
+                lambda: self.addWidget(core.LocalRMSEPExplore.LocalRMSEPExplore))
             self.actionCalculate_Local_RMSEP.triggered.connect(
-                lambda: self.addWidget(core.LocalRMSEP.LocalRMSEP))
+                lambda: self.addWidget(core.LocalRMSEPCalc.LocalRMSEPCalc))
             self.actionRemove_Rows.triggered.connect(
                 lambda: self.addWidget(core.RemoveRows.RemoveRows))
             self.actionSplit_Data.triggered.connect(
