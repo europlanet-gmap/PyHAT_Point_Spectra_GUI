@@ -5,6 +5,7 @@ from point_spectra_gui.core.unmixingMethods import *
 from point_spectra_gui.ui.Unmixing import Ui_Form
 from point_spectra_gui.util.Modules import Modules
 from point_spectra_gui.util.spectral_data import spectral_data
+#import mesma
 from libpyhat.Unmixing.unmix import unmix
 
 class Unmixing(Ui_Form, Modules):
@@ -19,7 +20,10 @@ class Unmixing(Ui_Form, Modules):
 
     def connectWidgets(self):
         self.algorithm_list = ['Choose an algorithm',
-                               'NNLS']
+                               'NNLS',
+                               'FCLS',
+                               'UCLS']#,
+                               #'MESMA']
 
         self.setComboBox(self.chooseDataComboBox, self.datakeys)
         self.setComboBox(self.endmemberscomboBox, self.datakeys)
@@ -77,7 +81,7 @@ class Unmixing(Ui_Form, Modules):
         normalize = self.getMethodParams(self.chooseMethodComboBox.currentIndex())
         mask = None
         self.data[datakey].df = unmix(self.data[datakey].df, self.data[endmembers].df,normalize,mask,col=col,unmix_method=method)
-        
+
     def make_unmix_widget(self, alg, params=None):
         self.hideAll()
         #print(alg)
@@ -91,7 +95,10 @@ class Unmixing(Ui_Form, Modules):
 
     def unmixingMethods(self):
         self.alg = []
-        list_forms = [unmix_NNLS]
+        list_forms = [unmix_NNLS,
+                      unmix_FCLS,
+                      unmix_UCLS]#,
+                      #unmix_MESMA]
         for items in list_forms:
             self.alg.append(items.Ui_Form())
             self.alg[-1].setupUi(self.Form)
