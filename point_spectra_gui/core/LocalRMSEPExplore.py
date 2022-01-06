@@ -59,11 +59,11 @@ class LocalRMSEPExplore(Ui_Form, Modules):
             plot_file = None
         else:
             plot_file = self.plot_file.text()
-
+        extrap = self.extrapolate_check.isChecked()
         fullfit = self.fitall.isChecked()
-        local_rmsep.loacl_rmse_explore(predictions,actuals,windowsize=windowsize,min_rmsep_num=n_neighbors,sigma=sigma,
+        local_rmsep.local_rmse_explore(predictions,actuals,windowsize=windowsize,min_rmsep_num=n_neighbors,sigma=sigma,
                                  plot_file=plot_file,xmax=xmax,outpath=self.outpath,element=self.choosecomp.currentText(),
-                                 full_fit=fullfit)
+                                 full_fit=fullfit,extrapolate = extrap)
 
     def get_choices(self, colname):
         try:
