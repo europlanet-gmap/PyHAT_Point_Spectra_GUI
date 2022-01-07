@@ -14,9 +14,9 @@ build:
 
 requirements:
   build:
-   - python >=3.7
+   - python x.x
    - pyqt
-   - numpy
+   - numpy=1.21.5
    - pandas
    - scipy
    - matplotlib
@@ -26,9 +26,9 @@ requirements:
    - networkx>=2.5
    - pyhat
   run:
-    - python >=3.7
+    - python x.x
     - pyqt
-    - numpy
+    - numpy=1.21.5
     - pandas
     - scipy
     - matplotlib
