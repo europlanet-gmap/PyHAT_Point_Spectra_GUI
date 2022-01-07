@@ -1,1 +1,3 @@
 from point_spectra_gui.core.unmixingMethods import unmix_NNLS
+from point_spectra_gui.core.unmixingMethods import unmix_FCLS
+from point_spectra_gui.core.unmixingMethods import unmix_UCLS
