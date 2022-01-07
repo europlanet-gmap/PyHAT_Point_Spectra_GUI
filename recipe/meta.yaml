@@ -16,7 +16,7 @@ requirements:
   build:
    - python x.x
    - pyqt
-   - numpy =1.21.5
+   - numpy=1.21.5
    - pandas
    - scipy
    - matplotlib
@@ -28,7 +28,7 @@ requirements:
   run:
     - python x.x
     - pyqt
-    - numpy
+    - numpy=1.21.5
     - pandas
     - scipy
     - matplotlib
