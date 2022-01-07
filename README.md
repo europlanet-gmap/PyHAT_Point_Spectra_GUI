@@ -16,7 +16,9 @@ conda config --add channels conda-forge #This ensures that your conda is connect
 conda create -n pyhat_gui # This creates a new environment named pyhat_gui. Substitute your preferred name if desired.
 conda activate pyhat_gui #this activates the environment
 conda install -c usgs-astrogeology ppsg # This installs the PyHAT Point Spectra GUI (ppsg) package from Anaconda
-pip install pysptools #This installs the pysptools package
+# Install pip packages
+pip install pysptools 
+pip install spectral
 ```
 
 ### 3. Done! How to use point_spectra_gui
